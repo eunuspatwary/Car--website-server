@@ -40,6 +40,15 @@ async function run() {
             res.json(result)
         });
 
+        // reviw get 
+        app.get('/reviews', async (req, res) => {
+            const cursor = reviwCollection.find({})
+            const review = await cursor.toArray()
+
+            res.send(review)
+        })
+
+
         // purchase post
         app.post('/purchase', async (req, res) => {
             const product = req.body;
